@@ -1,16 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <header>
-        
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <body class="bg-[#FEFEFE] mx-auto dark:bg-[#060C18]">
+    <header class="p-4">
+      <div
+        class="bg-white rounded-lg w-auto mx-auto p-3 shadow-[0px_4px_58.5px_0px_rgba(0,0,0,0.06)] lg:hidden dark:bg-[#091120]"
+      >
+        <div class="flex flex-row justify-between">
+          <img
+            src="../assets/icons/menu.svg"
+            alt="menu-light"
+            class="dark:hidden"
+          />
+          <img
+            src="..//assets/icons/dark-mode-menu.svg"
+            alt="menu-dark"
+            class="hidden dark:block"
+          />
+          <h2 class="text-[16px] font-bold dark:text-[#FFFFFF]">کوئرا لیست</h2>
+          <div class="w-6 h-6 bg-white dark:bg-[#091120]"></div>
+        </div>
+      </div>
     </header>
-   <footer>
-    
-   </footer>
-</body>
+    <footer class="lg:mx-auto lg:px-60">
+      <!-- padding needs to be fixed after sidebar -->
+
+      <div class="p-4 flex flex-col gap-y-4 mb-8">
+        <div class="w-full">
+          <h2
+            class="text-[20px] font-extrabold text-[#242424] dark:text-[#FFFFFF] mb-1"
+          >
+            تسک‌های انجام شده
+          </h2>
+          <p class="text-[12px] font-normal text-[#696969] dark:text-[#848890]">
+            3 تسک را باید انجام دهید.
+          </p>
+        </div>
+        <div>
+          <div
+            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
+          >
+            <div
+              class="absolute top-2 bottom-2 right-0 w-1 bg-[#FFAF37] rounded-l-md"
+            ></div>
+            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
+
+            <p
+              class="text-[#323233] font-semibold text-sm line-through decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+            >
+              خرید میوه و سبزیجات و لبنیات برای خانه
+            </p>
+
+            <div class="mr-auto group">
+              <div class="relative">
+                <button type="button" class="focus:outline-none">
+                  <img
+                    src="../assets/icons/three dots.svg"
+                    alt="three dots"
+                    class="dark:hidden"
+                  />
+                  <img
+                    src="../assets/icons/three-dots-dark.svg"
+                    alt="three dots dark"
+                    class="hidden dark:block"
+                  />
+                </button>
+
+                <div
+                  class="absolute end-0 top-full flex items-center h-8 border bg-white border-[#E9E9E9] rounded-lg shadow-[0px_12px_24px_-6px_rgba(20,20,25,0.06)] px-1 gap-x-2 z-30 dark:bg-[#0B192D] dark:border-[#293242]"
+                >
+                  <button
+                    class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-l-lg"
+                  >
+                    <img
+                      src="../assets/icons/edit-bar.svg"
+                      alt="edit"
+                      class="z-50 dark:hidden"
+                    />
+                    <img
+                      src="../assets/icons/edit-bar-dark.svg"
+                      alt="edit-bar-dark"
+                      class="hidden dark:block"
+                    />
+                  </button>
+                  <div class="h-5 w-px bg-[#E9E9E9] dark:bg-[#293242]"></div>
+                  <button
+                    class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-r-lg"
+                  >
+                    <img src="../assets/icons/trash-icone.svg" alt="delete" class="dark:hidden"/>
+                    <img src="../assets/icons/trash-icone-dark.svg" alt="trash" class="hidden dark:block">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
+          >
+            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              checked
+              class="hidden"
+            />
+            <p
+              class="text-[#323233] font-semibold text-sm line-through decoration-gray-500 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+            >
+              تماس با مبل فروشی در مورد تاخیر در ارسال
+            </p>
+            <img
+              src="../assets/icons/three dots.svg"
+              alt="three dots"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/icons/three-dots-dark.svg"
+              alt="three dots dark"
+              class="hidden dark:block"
+            />
+            <div
+              class="absolute top-2 bottom-2 right-0 w-1 bg-[#FF5F37] rounded-l-md"
+            ></div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
+          >
+            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              checked
+              class="hidden"
+            />
+            <p
+              class="text-[#323233] font-semibold text-sm line-through decoration-gray-500 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+            >
+              جلسه با مرتضی در مورد مصاحبه با کارآموز ادمین پنل
+            </p>
+            <img
+              src="../assets/icons/three dots.svg"
+              alt="three dots"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/icons/three-dots-dark.svg"
+              alt="three dots dark"
+              class="hidden dark:block"
+            />
+            <div
+              class="absolute top-2 bottom-2 right-0 w-1 bg-[#11A483] rounded-l-md"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
