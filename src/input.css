@@ -1,2 +1,25 @@
 @import "tailwindcss";
 
+/* src/input.css */
+
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("./assets/fonts/yekan-bakh/YekanBakh-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("./assets/fonts/yekan-bakh/YekanBakh-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+  font-family: "Yekan Bakh", sans-serif;
+}
+
+/* 2️⃣ Tailwind layers */
+
