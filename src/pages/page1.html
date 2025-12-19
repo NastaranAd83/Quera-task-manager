@@ -6,43 +6,255 @@
     <link href="../output.css" rel="stylesheet" />
     <title>Document</title>
   </head>
-  <body class="bg-[#FEFEFE]">
-    <header></header>
+  <body class="bg-[#FEFEFE] mx-auto dark:bg-[#060C18]">
+    <header class="p-4">
+      <div
+        class="bg-white rounded-lg w-auto mx-auto p-3 shadow-[0px_4px_58.5px_0px_rgba(0,0,0,0.06)] lg:hidden dark:bg-[#091120]"
+      >
+        <div class="flex flex-row justify-between">
+          <img
+            src="../assets/icons/menu.svg"
+            alt="menu-light"
+            class="dark:hidden"
+          />
+          <img
+            src="..//assets/icons/dark-mode-menu.svg"
+            alt="menu-dark"
+            class="hidden dark:block"
+          />
+          <h2 class="text-[16px] font-bold dark:text-[#FFFFFF]">کوئرا لیست</h2>
+          <div class="w-6 h-6 bg-white dark:bg-[#091120]"></div>
+        </div>
+      </div>
+    </header>
 
-    <section class="section1 mx-auto mt-20">
-      <div class="image-text flex flex-row gap-5 mr-5">
+    <section class="section1 mx-auto mt-0.5 lg:hidden lg:mx-auto lg:px-60">
+      <div class="image-text flex flex-row gap-5 p-4">
         <img src="../assets/images/Ellipse 136.png" alt="user_profile" />
         <div class="text flex flex-col gap-1 justify-center">
           <!-- <p style="font-family: 'Yekan Bakh', sans-serif; font-weight: 800"> تست فونت</p> -->
           <p
-            class="text-child1 text-[#242424] font-yekan font-extrabold text-[18px] leading-[100%] tracking-normal text-right align-middle"
+            class="text-child1 text-[#242424] text-[18px] leading-[100%] tracking-normal text-right align-middle mb-2 dark:text-[#FFFFFF]"
           >
             سلام، رویا
           </p>
           <p
-            class="text-child2 text-[#7D7D7F] font-yekan font-semibold text-[14px] leading-[100%] tracking-normal text-right align-middle"
+            class="text-child2 text-[#7D7D7F] text-[14px] leading-[100%] tracking-normal text-right align-middle dark:text-[#848890]"
           >
             امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲
           </p>
         </div>
       </div>
     </section>
-    <section class="section2">
-      <div class="max-w-100 mt-10 mx-auto w-80 h-0.5 bg-[#F5F6F8] block"></div>
+    <section class="section2 lg:mx-auto lg:px-60">
+      <div
+        class="max-w-100 mt-4.5 mx-auto w-80 h-0.5 bg-[#F5F6F8] block lg:hidden"
+      ></div>
     </section>
-    <section class="section3 flex flex-col gap-4 ml-5 mr-5 mt-10">
+    <section
+      class="section3 flex flex-col gap-4 ml-5 mr-5 mt-5.5 lg:mx-auto lg:px-64.5"
+    >
       <div class="texts flex flex-col gap-2">
-        <p id="texts-first">تسک‌های امروز</p>
-        <p id="texts-second">تسکی برای امروز نداری!</p>
+        <p
+          id="texts-first "
+          class="text-[#242424] text-[16px] leading-[100%] tracking-normal text-right align-middle dark:text-[#FFFFFF]"
+        >
+          تسک‌های امروز
+        </p>
+        <p
+          id="texts-second "
+          class="text-[#696969] text-[12px] tracking-normal text-right align-middle dark:text-[#848890]"
+        >
+          تسکی برای امروز نداری!
+        </p>
       </div>
-      <div id="div-btn" class="bg-amber-800 h-16">
+      <div id="div-btn" class="h-12">
         <button
           type="button"
-          class="border border-dashed bg-amber-200 w-100%"
-        ></button>
+          class="border border-dashed border-blue-400 w-full h-full rounded-xl lg:max-w-200 lg:w-188.5 dark:border-[#091120] hover:bg-blue-300 hover:transition-all hover:duration-300 hover:ease-in-out"
+        >
+          <div class="flex flex-row gap-2 p-2">
+            <img src="../assets/icons/add.svg" alt="add-sign" />
+            <p class="text-[#007BFF] leading-none dark:text-[#57A8FF]">
+              افزودن وظیفه جدید
+            </p>
+          </div>
+        </button>
       </div>
     </section>
 
-    <footer></footer>
+    <section
+      class="section4 flex flex-col gap-4 justify-center items-center mt-8"
+    >
+      <div class="checklist">
+        <img src="../assets/images/2143202_Artboard 1.png" alt="check-list" />
+      </div>
+      <div
+        class="checklist-texts mt-2 max-w-65 flex flex-col gap-3 lg:max-w-90"
+      >
+        <p
+          class="text-center text-[#7D7D7F] text-[16px] leading-[100%] tracking-normal align-middle mb-2 dark:text-[#848890]"
+        >
+          چه کارهایی امروز برای انجام داری؟
+        </p>
+        <p
+          class="text-center text-[#AFAEB2] text-[14px] tracking-normal align-middle w-full dark:text-[#52555B]"
+        >
+          میتونی الان تسک‌هاتو اینجا بنویسی و برنامه ریزی رو شروع کنی!
+        </p>
+      </div>
+    </section>
+
+    <footer class="lg:mx-auto lg:px-60">
+      <!-- padding needs to be fixed after sidebar -->
+
+      <div class="p-4 flex flex-col gap-y-4 mb-8">
+        <div class="w-full">
+          <h2
+            class="text-[20px] font-extrabold text-[#242424] dark:text-[#FFFFFF] mb-1"
+          >
+            تسک‌های انجام شده
+          </h2>
+          <p class="text-[12px] font-normal text-[#696969] dark:text-[#848890]">
+            3 تسک را باید انجام دهید.
+          </p>
+        </div>
+        <div>
+          <div
+            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
+          >
+            <div
+              class="absolute top-2 bottom-2 right-0 w-1 bg-[#FFAF37] rounded-l-md"
+            ></div>
+            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
+
+            <p
+              class="text-[#323233] font-semibold text-sm line-through decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+            >
+              خرید میوه و سبزیجات و لبنیات برای خانه
+            </p>
+
+            <div class="mr-auto group">
+              <div class="relative">
+                <button type="button" class="focus:outline-none">
+                  <img
+                    src="../assets/icons/three dots.svg"
+                    alt="three dots"
+                    class="dark:hidden"
+                  />
+                  <img
+                    src="../assets/icons/three-dots-dark.svg"
+                    alt="three dots dark"
+                    class="hidden dark:block"
+                  />
+                </button>
+
+                <div
+                  class="absolute end-0 top-full flex items-center h-8 border bg-white border-[#E9E9E9] rounded-lg shadow-[0px_12px_24px_-6px_rgba(20,20,25,0.06)] px-1 gap-x-2 z-30 dark:bg-[#0B192D] dark:border-[#293242]"
+                >
+                  <button
+                    class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-l-lg"
+                  >
+                    <img
+                      src="../assets/icons/edit-bar.svg"
+                      alt="edit"
+                      class="z-50 dark:hidden"
+                    />
+                    <img
+                      src="../assets/icons/edit-bar-dark.svg"
+                      alt="edit-bar-dark"
+                      class="hidden dark:block"
+                    />
+                  </button>
+                  <div class="h-5 w-px bg-[#E9E9E9] dark:bg-[#293242]"></div>
+                  <button
+                    class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-r-lg"
+                  >
+                    <img
+                      src="../assets/icons/trash-icone.svg"
+                      alt="delete"
+                      class="dark:hidden"
+                    />
+                    <img
+                      src="../assets/icons/trash-icone-dark.svg"
+                      alt="trash"
+                      class="hidden dark:block"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
+          >
+            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              checked
+              class="hidden"
+            />
+            <p
+              class="text-[#323233] font-semibold text-sm line-through decoration-gray-500 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+            >
+              تماس با مبل فروشی در مورد تاخیر در ارسال
+            </p>
+            <div class="mr-auto">
+              <img
+                src="../assets/icons/three dots.svg"
+                alt="three dots"
+                class="dark:hidden"
+              />
+              <img
+                src="../assets/icons/three-dots-dark.svg"
+                alt="three dots dark"
+                class="hidden dark:block"
+              />
+            </div>
+            <div
+              class="absolute top-2 bottom-2 right-0 w-1 bg-[#FF5F37] rounded-l-md"
+            ></div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
+          >
+            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              checked
+              class="hidden"
+            />
+            <p
+              class="text-[#323233] font-semibold text-sm line-through decoration-gray-500 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+            >
+              جلسه با مرتضی در مورد مصاحبه با کارآموز ادمین پنل
+            </p>
+            <div class="mr-auto">
+              <img
+                src="../assets/icons/three dots.svg"
+                alt="three dots"
+                class="dark:hidden"
+              />
+              <img
+                src="../assets/icons/three-dots-dark.svg"
+                alt="three dots dark"
+                class="hidden dark:block"
+              />
+            </div>
+            <div
+              class="absolute top-2 bottom-2 right-0 w-1 bg-[#11A483] rounded-l-md"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
