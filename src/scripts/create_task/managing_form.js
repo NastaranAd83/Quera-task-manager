@@ -23,6 +23,9 @@ import {
   section4,
   section5,
   texts_second,
+  // footer
+  completedTaskList,
+  completedTasksText,
 } from "./ui/elements.js";
 
 import { renderTasks } from "../create_task/ui/render_tasks.js";
@@ -41,9 +44,39 @@ let currentPriority = 0;
 
 updatePersianDate();
 
+//footer
+export function insertTaskSorted(container, card, priority) {
+  const priorityOrder = { high: 3, medium: 2, low: 1 };
+  const existingCards = Array.from(container.children);
+
+  let inserted = false;
+  for (let i = 0; i < existingCards.length; i++) {
+    const existingPriority = existingCards[i].dataset.priority;
+
+    if (priorityOrder[priority] > priorityOrder[existingPriority]) {
+      container.insertBefore(card, existingCards[i]);
+      inserted = true;
+      break;
+    }
+  }
+
+  if (!inserted) {
+    container.appendChild(card);
+  }
+}
+//footer
+function updateCompletedCount() {
+  const count = completedTaskList.children.length;
+  completedTasksText.textContent = `${count} تسک را انجام داده‌اید.`;
+}
+
 export function createTask({ id, title, description, priority }) {
   const clone = taskTemplate.content.cloneNode(true);
   const card = clone.querySelector(".task-card");
+  //footer
+  card.dataset.taskId = id;
+  card.dataset.priority = priority;
+
   const title_task = clone.querySelector(".title-task");
   const desc = clone.querySelector(".task-description");
   const priorityText = clone.querySelector(".priority-text");
@@ -52,6 +85,9 @@ export function createTask({ id, title, description, priority }) {
   const three_dots = clone.querySelector(".three-dots");
   const trash_edit = clone.querySelector(".trash-edit");
   const edit = clone.querySelector(".edit");
+
+  //footer
+  const completeBox = clone.querySelector(".complete-box");
 
   title_task.textContent = title;
   desc.textContent = description;
@@ -140,6 +176,51 @@ export function createTask({ id, title, description, priority }) {
     div_span.classList.remove("hidden");
   });
 
+  // footer
+  if (completeBox) {
+    completeBox.addEventListener("click", () => {
+      const isCompleted = card.dataset.completed === "true";
+
+      if (isCompleted) {
+        card.dataset.completed = "false";
+
+        tasks.push({ id, title, description, priority });
+
+        card.remove();
+
+        updateCompletedCount();
+
+        renderTasks({
+          tasks,
+          taskList,
+          priorityOrder,
+          createTask,
+        });
+
+        return;
+      }
+
+      card.dataset.completed = "true";
+
+      const index = tasks.findIndex((t) => t.id === id);
+      if (index !== -1) tasks.splice(index, 1);
+
+      title_task.classList.add("line-through", "text-gray-500");
+      if (desc) desc.classList.add("hidden");
+      if (priorityText) priorityText.classList.add("hidden");
+      if (priority_bg) priority_bg.classList.add("bg-transparent");
+
+      completeBox.innerHTML =
+        '<img src="../assets/icons/tick-square.svg" class="w-5 h-5" />';
+
+      insertTaskSorted(completedTaskList, card, priority);
+      updateCompletedCount();
+    });
+  }
+  if (card.dataset.completed === "true" && priority_bg) {
+    priority_bg.classList.add("hidden");
+  }
+
   return clone;
 }
 
@@ -191,12 +272,11 @@ close_btn.addEventListener("click", () => {
   tag_btn.style.color = "#AFAEB2";
   span1.textContent = "";
   currentPriority = 0;
-  if (tasks.length===0)
-  {
-    section4.classList.remove("hidden")
+  if (tasks.length === 0) {
+    section4.classList.remove("hidden");
     check_list_img.classList.remove("hidden");
-  checklist_texts_child2.classList.remove("hidden");
-  checklist_texts_child1.classList.remove("hidden");
+    checklist_texts_child2.classList.remove("hidden");
+    checklist_texts_child1.classList.remove("hidden");
   }
   task_name.value = "";
   task_description.value = "";
@@ -323,3 +403,65 @@ adding_task_btn.addEventListener("click", () => {
   }
   edit_counter = 0;
 });
+
+
+//footer
+// Helper: find the task object and remove it from the `tasks` array
+function removeTaskFromArray(taskId) {
+  const index = tasks.findIndex((t) => t.id === taskId);
+  if (index !== -1) {
+    tasks.splice(index, 1);
+  }
+}
+
+// Helper: update the header text that shows how many tasks are left
+function updatePendingTasksCount() {
+  texts_second.textContent =
+    tasks.length > 0
+      ? `${tasks.length} تسک باید انجام دهید.`
+      : "تسکی برای امروز نداری!";
+}
+
+// Main deletion logic – event delegation on both containers
+function setupDeleteListeners() {
+  // Listen on the uncompleted tasks container
+  taskList.addEventListener("click", handleDeleteClick);
+
+  // Listen on the completed tasks container
+  completedTaskList.addEventListener("click", handleDeleteClick);
+}
+
+function handleDeleteClick(e) {
+  // We click on the img inside the trash button
+  if (e.target.closest(".trash")) {
+    const trashButton = e.target.closest(".trash");
+    const card = trashButton.closest(".task-card");
+
+    if (!card) return;
+
+    // Get the task id – we will store it in a data attribute when creating the card
+    const taskId = card.dataset.taskId;
+
+    // Remove the card from DOM
+    card.remove();
+
+    // If it was in completed list → update the footer counter
+    if (e.currentTarget === completedTaskList) {
+      updateCompletedCount();
+    }
+
+    // If it was in the uncompleted list → remove from tasks array and update count
+    if (taskId) {
+      removeTaskFromArray(taskId);
+      updatePendingTasksCount();
+    }
+
+    // If there are no more uncompleted tasks, show the empty state
+    if (tasks.length === 0) {
+      section4.classList.remove("hidden");
+    }
+  }
+}
+
+// Call this once after your app is initialized
+setupDeleteListeners();
