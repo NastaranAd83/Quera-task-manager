@@ -1,0 +1,33 @@
+
+
+export const taskForm = document.getElementById("form");
+export const adding_duty_btn = document.getElementById("add-duty-btn");
+export const div_duty_btn = document.getElementById("div-btn-add-duty");
+export const check_list_img = document.getElementById("check-list-img");
+export const close_btn = document.getElementById("close-btn");
+export const priority_form = document.getElementById("priority-form");
+export const tag_btn = document.getElementById("tag-btn");
+export const checklist_texts_child1 = document.getElementById(
+  "checklist-texts-child1"
+);
+export const checklist_texts_child2 = document.getElementById(
+  "checklist-texts-child2"
+);
+export const div_span = document.getElementById("div-span");
+export const tag_span = document.getElementById("tag-span");
+export const span1 = document.getElementById("span1");
+export const tag_img_down = document.getElementById("tag-img-down");
+export const adding_task_btn = document.getElementById("adding-task-btn");
+export const task_name = document.getElementById("task-name");
+export const task_description = document.getElementById("task-description");
+
+export const taskTemplate = document.getElementById("task-template");
+
+export const priorityButtons = document.querySelectorAll(".priority-btn");
+export const tag_img = tag_btn.querySelector("img");
+export const taskList = document.querySelector(".task-list");
+export const section4 = document.querySelector(".section4");
+export const section5 = document.querySelector(".section5");
+export const texts_second = document.getElementById("texts-second");
+
+
