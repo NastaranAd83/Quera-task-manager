@@ -2,7 +2,6 @@
 
 /* src/input.css */
 
-
 @font-face {
   font-family: "Yekan Bakh";
   src: url("./assets/fonts/yekan-bakh/YekanBakh-Black.woff2") format("woff2");
@@ -12,7 +11,8 @@
 
 @font-face {
   font-family: "Yekan Bakh";
-  src: url("./assets/fonts/yekan-bakh/YekanBakh-ExtraBold.woff2") format("woff2");
+  src: url("./assets/fonts/yekan-bakh/YekanBakh-ExtraBold.woff2")
+    format("woff2");
   font-weight: 800;
   font-style: normal;
 }
@@ -23,3 +23,6 @@ body {
 
 /* 2️⃣ Tailwind layers */
 
+.task-card[data-completed="true"] .priority-bg {
+  background-color: transparent !important;
+}

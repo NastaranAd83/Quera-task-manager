@@ -1,5 +1,3 @@
-
-
 export const taskForm = document.getElementById("form");
 export const adding_duty_btn = document.getElementById("add-duty-btn");
 export const div_duty_btn = document.getElementById("div-btn-add-duty");
@@ -30,4 +28,6 @@ export const section4 = document.querySelector(".section4");
 export const section5 = document.querySelector(".section5");
 export const texts_second = document.getElementById("texts-second");
 
-
+// footer
+export const completedTaskList = document.querySelector(".completed-task-list");
+export const completedTasksText = document.getElementById("completed-text"); //nuber of done task
