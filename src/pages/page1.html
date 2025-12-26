@@ -215,26 +215,31 @@
                 alt=""
                 class="mb-auto"
               />
-              <div class="flex flex-col gap-1.5">
-                <p
-                  class="title-task text-[#323233] font-semibold text-sm decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
-                >
-                  خرید میوه و سبزیجات و لبنیات برای خانه
-                </p>
+              <div class="flex flex-col gap-1 lg:flex-row">
                 <div
-                  class="priority-bg inline-flex self-start justify-center items-center rounded-md mt-2 p-1 pb-1.5"
+                  class="flex  flex-col lg:flex-row gap-1 "
                 >
-                  <span class="priority-text text-[10px]">پایین</span>
+                  <p
+                    class="title-task break-all text-[#323233] font-semibold text-sm decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+                  >
+                    خرید میوه و سبزیجات و لبنیات برای خانه
+                  </p>
+                  <div
+                    class="priority-bg inline-flex self-start justify-center items-center rounded-md mt-1.5 p-1 pb-1.5"
+                  >
+                    <span class="priority-text text-[10px]">پایین</span>
+                  </div>
                 </div>
+
                 <p
-                  class="task-description text-[#7D7D7F] font-semibold text-[12px] decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500 mt-2"
+                  class="task-description break-all text-[#7D7D7F] font-semibold text-[12px] decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500 mt-2"
                 >
                   خرید میوه و سبزیجات و لبنیات برای خانه
                 </p>
               </div>
               <div class="mr-auto group">
                 <div class="relative">
-                  <button type="button" class="focus:outline-none">
+                  <button type="button" class="three-dots focus:outline-none">
                     <img
                       src="../assets/icons/three dots.svg"
                       alt="three dots"
@@ -248,16 +253,17 @@
                   </button>
 
                   <div
-                    class="hidden absolute end-0 top-full flex items-center h-8 border bg-white border-[#E9E9E9] rounded-lg shadow-[0px_12px_24px_-6px_rgba(20,20,25,0.06)] px-1 gap-x-2 z-30 dark:bg-[#0B192D] dark:border-[#293242]"
+                    class="trash-edit hidden absolute end-0 top-full flex items-center h-8 border bg-white border-[#E9E9E9] rounded-lg shadow-[0px_12px_24px_-6px_rgba(20,20,25,0.06)] px-1 gap-x-2 z-30 dark:bg-[#0B192D] dark:border-[#293242]"
                   >
                     <button
-                      class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-l-lg"
+                      class="edit flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-l-lg"
                     >
                       <img
                         src="../assets/icons/edit-bar.svg"
                         alt="edit"
                         class="z-50 dark:hidden"
                       />
+
                       <img
                         src="../assets/icons/edit-bar-dark.svg"
                         alt="edit-bar-dark"
@@ -318,10 +324,7 @@
     </main>
 
     <aside
-      class="fixed top-10 right-5 z-40 w-72 h-screen bg-white shadow-lg 
-         flex flex-col p-6
-         translate-x-full sm:translate-x-0
-         transition-transform duration-300 rounded-b-sm"
+      class="fixed top-10 right-5 z-40 w-72 h-screen bg-white shadow-lg flex flex-col p-6 translate-x-full sm:translate-x-0 transition-transform duration-300 rounded-b-sm"
     >
       <div>
         <div class="flex items-center justify-between mb-8">
@@ -334,51 +337,49 @@
             href="#"
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-blue-600 bg-blue-100"
           >
-           
-            <img src="../assets/images/home-2.png" alt="home_icon">
+            <img src="../assets/images/home-2.png" alt="home_icon" />
             <span>خانه</span>
           </a>
 
           <a
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
           >
-          
-            <img src="../assets/images/task-square.png" alt="">
+            <img src="../assets/images/task-square.png" alt="" />
             <span>تسک‌ها</span>
           </a>
 
           <a
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
           >
-            <img src="../assets/images/calendar.png" >
+            <img src="../assets/images/calendar.png" />
             <span>تقویم</span>
           </a>
 
           <a
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
           >
-           <img src="../assets/images/arrange-square-2.png" alt="">
+            <img src="../assets/images/arrange-square-2.png" alt="" />
             <span>گزارشات</span>
           </a>
 
           <a
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
           >
-            <img src="../assets/images/setting.png" alt="">
+            <img src="../assets/images/setting.png" alt="" />
             <span>تنظیمات</span>
           </a>
 
           <a
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
           >
-           <img src="../assets/images/24-support.png" alt="">
+            <img src="../assets/images/24-support.png" alt="" />
             <span>پشتیبانی</span>
           </a>
 
           <a
             class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
           >
-            <img src="../assets/images/profile.png" alt="">
+            <img src="../assets/images/profile.png" alt="" />
             <span>پروفایل</span>
           </a>
         </nav>
@@ -409,7 +410,7 @@
         </button>
       </div>
     </aside>
-    <footer class="lg:mx-auto lg:px-23 lg:mr-75" >
+    <footer class="lg:mx-auto lg:px-23 lg:mr-75">
       <!-- padding needs to be fixed after sidebar -->
       <div class="p-4 flex flex-col gap-y-4 mb-8">
         <div class="w-full">
@@ -555,6 +556,7 @@
         </div>
       </div>
     </footer>
-    <script src="../scripts/create_task/managing_form.js"></script>
+    <script type="module" src="../scripts/main.js"></script>
+    <script src="../scripts/updating_task/updating_task.js"></script>
   </body>
 </html>
