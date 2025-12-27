@@ -12,16 +12,19 @@
         class="bg-white rounded-lg w-auto mx-auto p-3 shadow-[0px_4px_58.5px_0px_rgba(0,0,0,0.06)] lg:hidden dark:bg-[#091120]"
       >
         <div class="flex flex-row justify-between">
-          <img
-            src="../assets/icons/menu.svg"
-            alt="menu-light"
-            class="dark:hidden"
-          />
-          <img
-            src="..//assets/icons/dark-mode-menu.svg"
-            alt="menu-dark"
-            class="hidden dark:block"
-          />
+          <button>
+            <img
+              src="../assets/icons/menu.svg"
+              alt="menu-light"
+              class="dark:hidden"
+            />
+            <img
+              src="..//assets/icons/dark-mode-menu.svg"
+              alt="menu-dark"
+              class="hidden dark:block"
+            />
+          </button>
+
           <h2 class="text-[16px] font-bold dark:text-[#FFFFFF]">کوئرا لیست</h2>
           <div class="w-6 h-6 bg-white dark:bg-[#091120]"></div>
         </div>
@@ -73,7 +76,7 @@
           <button
             id="add-duty-btn"
             type="button"
-            class="border border-dashed border-blue-400 w-full h-full rounded-xl hover:bg-blue-300 hover:transition-all hover:duration-300 hover:ease-in-out dark:border-[#091120]"
+            class="border border-dashed border-blue-400 w-full h-full rounded-xl hover:bg-blue-300 hover:transition-all hover:duration-300 hover:ease-in-out dark:border-blue-400"
           >
             <div class="flex flex-row gap-2 p-2">
               <img src="../assets/icons/add.svg" alt="add-sign" />
@@ -88,7 +91,7 @@
       <section class="section5 -mb-12 ml-4 mr-4 mt-15 lg:w-190 lg:mx-auto">
         <div
           id="form"
-          class="hidden relative z-10 bg-white w-full rounded-xl -top-7 border border-[#E9E9E9] shadow-[0_4px_58.5px_0_#0000000F] transition-all duration-500 ease-in-out lg:mx-auto lg:w-160 dark:bg-[#3D3D3D]"
+          class="hidden relative z-10 bg-white w-full rounded-xl -top-7 border border-[#E9E9E9] shadow-[0_4px_58.5px_0_#0000000F] transition-all duration-500 ease-in-out lg:mx-auto lg:w-160 dark:bg-[#060C18] dark:border-[#3D3D3D]"
         >
           <div class="flex flex-col p-4 py-2 gap-2.5">
             <input
@@ -108,7 +111,7 @@
             <button
               id="tag-btn"
               type="button"
-              class="flex flex-row gap-3 text-[#AFAEB2] h-8 w-20 justify-center items-center border border-[#E9E9E9] rounded-md mt-4 text-[12px]"
+              class="flex flex-row gap-3 text-[#AFAEB2] h-8 w-20 justify-center items-center border border-[#E9E9E9] rounded-md mt-4 text-[12px] dark:border-[#83878F]"
             >
               <img
                 id="tag-img"
@@ -158,7 +161,9 @@
                 بالا
               </button>
             </div>
-            <div class="w-full mt-3 h-0.5 bg-[#F5F6F8] block"></div>
+            <div
+              class="w-full mt-3 h-0.5 bg-[#F5F6F8] block dark:bg-[#3D3D3D]"
+            ></div>
 
             <div class="flex flex-row items-center justify-end gap-2">
               <button type="button" id="close-btn" class="mb-2">
@@ -210,34 +215,43 @@
                 class="line absolute top-2 bottom-2 right-0 w-1 rounded-l-md"
               ></div>
 
-              <img
-                src="../assets/images/Frame 1000005434.png"
-                alt=""
-                class="mb-auto"
-              />
-              <div class="flex flex-col gap-1 lg:flex-row">
-                <div
-                  class="flex  flex-col lg:flex-row gap-1 "
-                >
+              <div
+                class="flex flex-col items-center justify-start pt-1 shrink-0"
+              >
+                <div class="complete-box cursor-pointer" title="Mark complete">
+                  <img
+                    src="../assets/images/Frame 1000005434.png"
+                    alt="complete"
+                    class="w-4.5 h-4.5"
+                  />
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <!-- fixed the desc by wraping it in updated div -->
+                <div class="flex-col gap-1 lg:flex-row">
+                  <!-- fixed the desc -->
+                  <div class="flex flex-col lg:flex-row gap-1">
+                    <p
+                      class="title-task break-all text-[#323233] font-semibold text-sm decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+                    >
+                      خرید میوه و سبزیجات و لبنیات برای خانه
+                    </p>
+                    <div
+                      class="priority-bg inline-flex self-start justify-center items-center rounded-md p-1 pb-1.5"
+                    >
+                      <span class="priority-text text-[10px]">پایین</span>
+                    </div>
+                  </div>
+
                   <p
-                    class="title-task break-all text-[#323233] font-semibold text-sm decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+                    class="task-description break-all text-[#7D7D7F] font-semibold text-[12px] decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500 mt-2"
                   >
                     خرید میوه و سبزیجات و لبنیات برای خانه
                   </p>
-                  <div
-                    class="priority-bg inline-flex self-start justify-center items-center rounded-md mt-1.5 p-1 pb-1.5"
-                  >
-                    <span class="priority-text text-[10px]">پایین</span>
-                  </div>
                 </div>
-
-                <p
-                  class="task-description break-all text-[#7D7D7F] font-semibold text-[12px] decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500 mt-2"
-                >
-                  خرید میوه و سبزیجات و لبنیات برای خانه
-                </p>
               </div>
-              <div class="mr-auto group">
+              <div class="shrink-0 mr-auto group">
+                <!-- fixed the shrinking three dots-->
                 <div class="relative">
                   <button type="button" class="three-dots focus:outline-none">
                     <img
@@ -274,7 +288,7 @@
                       class="hidden h-5 w-px bg-[#E9E9E9] dark:bg-[#293242]"
                     ></div>
                     <button
-                      class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-r-lg"
+                      class="trash flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-r-lg"
                     >
                       <img
                         src="../assets/icons/trash-icone.svg"
@@ -419,148 +433,17 @@
           >
             تسک‌های انجام شده
           </h2>
-          <p class="text-[12px] font-normal text-[#696969] dark:text-[#848890]">
-            3 تسک را باید انجام دهید.
+          <p
+            id="completed-text"
+            class="text-[12px] font-normal text-[#696969] dark:text-[#848890]"
+          >
+            تسکی انجام نداده اید
           </p>
         </div>
-        <div>
-          <div
-            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
-          >
-            <div
-              class="absolute top-2 bottom-2 right-0 w-1 bg-[#FFAF37] rounded-l-md"
-            ></div>
-            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
 
-            <p
-              class="text-[#323233] font-semibold text-sm line-through decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
-            >
-              خرید میوه و سبزیجات و لبنیات برای خانه
-            </p>
-
-            <div class="mr-auto group">
-              <div class="relative">
-                <button type="button" class="focus:outline-none">
-                  <img
-                    src="../assets/icons/three dots.svg"
-                    alt="three dots"
-                    class="dark:hidden"
-                  />
-                  <img
-                    src="../assets/icons/three-dots-dark.svg"
-                    alt="three dots dark"
-                    class="hidden dark:block"
-                  />
-                </button>
-
-                <div
-                  class="absolute end-0 top-full flex items-center h-8 border bg-white border-[#E9E9E9] rounded-lg shadow-[0px_12px_24px_-6px_rgba(20,20,25,0.06)] px-1 gap-x-2 z-30 dark:bg-[#0B192D] dark:border-[#293242]"
-                >
-                  <button
-                    class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-l-lg"
-                  >
-                    <img
-                      src="../assets/icons/edit-bar.svg"
-                      alt="edit"
-                      class="z-50 dark:hidden"
-                    />
-                    <img
-                      src="../assets/icons/edit-bar-dark.svg"
-                      alt="edit-bar-dark"
-                      class="hidden dark:block"
-                    />
-                  </button>
-                  <div class="h-5 w-px bg-[#E9E9E9] dark:bg-[#293242]"></div>
-                  <button
-                    class="flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-r-lg"
-                  >
-                    <img
-                      src="../assets/icons/trash-icone.svg"
-                      alt="delete"
-                      class="dark:hidden"
-                    />
-                    <img
-                      src="../assets/icons/trash-icone-dark.svg"
-                      alt="trash"
-                      class="hidden dark:block"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div
-            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
-          >
-            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
-            <input
-              type="checkbox"
-              name="checkbox"
-              id="checkbox"
-              checked
-              class="hidden"
-            />
-            <p
-              class="text-[#323233] font-semibold text-sm line-through decoration-gray-500 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
-            >
-              تماس با مبل فروشی در مورد تاخیر در ارسال
-            </p>
-            <div class="mr-auto">
-              <img
-                src="../assets/icons/three dots.svg"
-                alt="three dots"
-                class="dark:hidden"
-              />
-              <img
-                src="../assets/icons/three-dots-dark.svg"
-                alt="three dots dark"
-                class="hidden dark:block"
-              />
-            </div>
-            <div
-              class="absolute top-2 bottom-2 right-0 w-1 bg-[#FF5F37] rounded-l-md"
-            ></div>
-          </div>
-        </div>
-        <div>
-          <div
-            class="flex flex-row gap-x-4 py-4 px-4 rounded-xl border border-[#E9E9E9] relative max-w-193.5 dark:border-none dark:bg-[#091120]"
-          >
-            <img src="../assets/icons/tick-square.svg" alt="" class="mb-auto" />
-            <input
-              type="checkbox"
-              name="checkbox"
-              id="checkbox"
-              checked
-              class="hidden"
-            />
-            <p
-              class="text-[#323233] font-semibold text-sm line-through decoration-gray-500 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
-            >
-              جلسه با مرتضی در مورد مصاحبه با کارآموز ادمین پنل
-            </p>
-            <div class="mr-auto">
-              <img
-                src="../assets/icons/three dots.svg"
-                alt="three dots"
-                class="dark:hidden"
-              />
-              <img
-                src="../assets/icons/three-dots-dark.svg"
-                alt="three dots dark"
-                class="hidden dark:block"
-              />
-            </div>
-            <div
-              class="absolute top-2 bottom-2 right-0 w-1 bg-[#11A483] rounded-l-md"
-            ></div>
-          </div>
-        </div>
+        <div class="completed-task-list flex flex-col gap-4 mt-4"></div>
       </div>
     </footer>
     <script type="module" src="../scripts/main.js"></script>
-    <script src="../scripts/updating_task/updating_task.js"></script>
   </body>
 </html>
