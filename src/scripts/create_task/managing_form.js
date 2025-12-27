@@ -29,10 +29,18 @@ import {
 } from "./ui/elements.js";
 
 import { renderTasks } from "../create_task/ui/render_tasks.js";
+import {
+  saveTasksToStorage,
+  loadTasksFromStorage,
+  saveCompletedTasksToStorage,
+  loadCompletedTasksFromStorage,
+} from "../create_task/ui/storing_task.js";
 
+import { applyCompletedUI } from "../create_task/ui/apply_complete_format.js";
 let storing_task = [];
 let id_container = 0;
 let edit_counter = 0;
+const completedTasks = [];
 const tasks = [];
 const priorityOrder = {
   high: 3,
@@ -43,6 +51,37 @@ const priorityOrder = {
 let currentPriority = 0;
 
 updatePersianDate();
+// Load tasks from LocalStorage on startup
+const storedTasks = loadTasksFromStorage();
+const stordCompletedTask = loadCompletedTasksFromStorage();
+
+storing_task.push(...storedTasks);
+tasks.push(...storedTasks);
+completedTasks.push(...stordCompletedTask);
+
+completedTasks.forEach((task) => {
+  const clone = createTask(task);
+  const card = clone.querySelector(".task-card");
+
+  card.dataset.completed = "true";
+  applyCompletedUI(card);
+
+  insertTaskSorted(completedTaskList, card, task.priority);
+});
+
+updateCompletedCount();
+
+if (tasks.length > 0) {
+  renderTasks({
+    tasks,
+    taskList,
+    priorityOrder,
+    createTask,
+  });
+
+  section4.classList.add("hidden");
+  texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
+}
 
 //footer
 export function insertTaskSorted(container, card, priority) {
@@ -68,6 +107,18 @@ export function insertTaskSorted(container, card, priority) {
 function updateCompletedCount() {
   const count = completedTaskList.children.length;
   completedTasksText.textContent = `${count} تسک را انجام داده‌اید.`;
+  //  tasks.length = tasks.length -1;
+  // if (tasks.length >= 1) {
+  //   console.log("hello")
+  //   if (tasks.length === 0) {
+  //      texts_second.textConten = " تسکی برای امروز نداری!"
+  //      console.log("task nadari")
+  //   } else if (tasks.length - 1>0) {
+
+  //     texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
+  //     console.log("bayad anjam bedi")
+  //   }
+  // }
 }
 
 export function createTask({ id, title, description, priority }) {
@@ -121,9 +172,10 @@ export function createTask({ id, title, description, priority }) {
 
   if (priority === "high") {
     priorityText.textContent = "بالا";
-    priorityText.classList.add("text-[#FF5F37]", "dark:text-[#02E1A2]");
-    line.classList.add("bg-[#FF5F37]", "dark:bg-[#02E1A2]");
-    priority_bg.classList.add("bg-[#FFE2DB]", "dark:bg-[#233332]");
+    priorityText.classList.add("text-[#FF5F37]", "dark:text-[#FF5F37]");
+    line.classList.add("bg-[#FF5F37]", "dark:bg-[#FF5F37]");
+    priority_bg.classList.add("bg-[#FFE2DB]", "dark:bg-[#3D2327]");
+   
   }
 
   if (priority === "medium") {
@@ -134,9 +186,10 @@ export function createTask({ id, title, description, priority }) {
   }
   if (priority === "low") {
     priorityText.textContent = "پایین";
-    priorityText.classList.add("text-[#11A483]", "dark:text-[#FF5F37]");
-    line.classList.add("bg-[#11A483]", "dark:bg-[#FF5F37]");
-    priority_bg.classList.add("bg-[#C3FFF1]", "dark:bg-[#3D2327]");
+    priorityText.classList.add("text-[#11A483]", "dark:text-[#02E1A2]");
+    line.classList.add("bg-[#11A483]", "dark:bg-[#02E1A2]");
+    priority_bg.classList.add("bg-[#C3FFF1]", "dark:bg-[#233332]");
+    
   }
 
   three_dots.addEventListener("click", () => {
@@ -146,7 +199,7 @@ export function createTask({ id, title, description, priority }) {
     const realIndex = tasks.findIndex((t) => t.id === id);
     id_container = id;
     tasks.splice(realIndex, 1);
-
+    saveTasksToStorage(tasks);
     card.remove();
     edit_counter = 1;
     task_name.value = title;
@@ -183,11 +236,15 @@ export function createTask({ id, title, description, priority }) {
 
       if (isCompleted) {
         card.dataset.completed = "false";
-
+        const completedIndex = completedTasks.findIndex((t) => t.id === id);
+        if (completedIndex !== -1) {
+          completedTasks.splice(completedIndex, 1);
+          saveCompletedTasksToStorage(completedTasks);
+        }
         tasks.push({ id, title, description, priority });
-
+        saveTasksToStorage(tasks);
         card.remove();
-
+        console.log;
         updateCompletedCount();
 
         renderTasks({
@@ -196,14 +253,26 @@ export function createTask({ id, title, description, priority }) {
           priorityOrder,
           createTask,
         });
-
+        if (tasks.length > 0) {
+          section4.classList.add("hidden");
+          section5.classList.add("hidden");
+          texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
+        } else if (tasks.length == 0) {
+          texts_second.textConten = " تسکی برای امروز نداری!";
+        }
         return;
       }
 
       card.dataset.completed = "true";
 
       const index = tasks.findIndex((t) => t.id === id);
-      if (index !== -1) tasks.splice(index, 1);
+
+      if (index !== -1) {
+        completedTasks.push(tasks[index]);
+        tasks.splice(index, 1);
+      }
+      saveTasksToStorage(tasks);
+      saveCompletedTasksToStorage(completedTasks);
 
       title_task.classList.add("line-through", "text-gray-500");
       if (desc) desc.classList.add("hidden");
@@ -214,6 +283,21 @@ export function createTask({ id, title, description, priority }) {
         '<img src="../assets/icons/tick-square.svg" class="w-5 h-5" />';
 
       insertTaskSorted(completedTaskList, card, priority);
+      if (tasks.length >= 0) {
+        console.log("hello")
+        if (tasks.length === 0) {
+          
+          section4.classList.remove("hidden");
+          section5.classList.remove("hidden");
+          texts_second.textContent = " تسکی برای امروز نداری!";
+        }
+        else {
+        
+        section4.classList.add("hidden");
+        section5.classList.add("hidden");
+        texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
+      } 
+    }
       updateCompletedCount();
     });
   }
@@ -369,6 +453,8 @@ adding_task_btn.addEventListener("click", () => {
     storing_task.push(task);
     tasks.push(task);
 
+    saveTasksToStorage(tasks);
+
     renderTasks({
       tasks,
       taskList,
@@ -403,7 +489,6 @@ adding_task_btn.addEventListener("click", () => {
   }
   edit_counter = 0;
 });
-
 
 //footer
 // Helper: find the task object and remove it from the `tasks` array
@@ -444,16 +529,29 @@ function handleDeleteClick(e) {
 
     // Remove the card from DOM
     card.remove();
-
+    if (e.currentTarget === completedTaskList && taskId) {
+      const index = completedTasks.findIndex((t) => t.id === taskId);
+      if (index !== -1) {
+        completedTasks.splice(index, 1);
+        saveCompletedTasksToStorage(completedTasks);
+        updateCompletedCount();
+      }
+    }
     // If it was in completed list → update the footer counter
     if (e.currentTarget === completedTaskList) {
       updateCompletedCount();
     }
 
     // If it was in the uncompleted list → remove from tasks array and update count
-    if (taskId) {
+    // if (taskId) {
+    //   removeTaskFromArray(taskId);
+    //   updatePendingTasksCount();
+    //   saveTasksToStorage(tasks);
+    // }
+    if (e.currentTarget === taskList && taskId) {
       removeTaskFromArray(taskId);
       updatePendingTasksCount();
+      saveTasksToStorage(tasks);
     }
 
     // If there are no more uncompleted tasks, show the empty state
