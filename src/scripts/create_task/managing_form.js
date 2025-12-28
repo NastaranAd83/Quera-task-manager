@@ -26,6 +26,14 @@ import {
   // footer
   completedTaskList,
   completedTasksText,
+  // side bar 
+  body,
+  sidebar,
+  menuBtn,
+  closeSidebar,
+  darkBtn,
+  lightBtn,
+  navLinks,
 } from "./ui/elements.js";
 
 import { renderTasks } from "../create_task/ui/render_tasks.js";
@@ -563,3 +571,35 @@ function handleDeleteClick(e) {
 
 // Call this once after your app is initialized
 setupDeleteListeners();
+
+
+
+
+// side bar
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("translate-x-full");
+});
+
+closeSidebar.addEventListener("click", () => {
+  sidebar.classList.add("translate-x-full");
+});
+
+
+export function setActiveButton(activeBtn, inactiveBtn) {
+  activeBtn.classList.add("bg-[rgba(0,34,71,1)]", "text-white");
+  activeBtn.classList.remove("bg-white", "text-gray-900");
+
+  inactiveBtn.classList.remove("bg-[rgba(0,34,71,1)]", "text-white");
+  inactiveBtn.classList.add("bg-white", "text-gray-900");
+}
+
+darkBtn.addEventListener("click", () => {
+  body.classList.add("dark");
+  setActiveButton(darkBtn, lightBtn);
+});
+
+lightBtn.addEventListener("click", () => {
+  body.classList.remove("dark");
+  setActiveButton(lightBtn, darkBtn);
+});

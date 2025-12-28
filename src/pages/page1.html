@@ -6,13 +6,13 @@
     <link href="../output.css" rel="stylesheet" />
     <title>Document</title>
   </head>
-  <body class="bg-[#FEFEFE] mx-auto dark:bg-[#060C18]">
+  <body id="app" class="bg-[#FEFEFE] mx-auto dark:bg-[#060C18]">
     <header class="p-4">
       <div
         class="bg-white rounded-lg w-auto mx-auto p-3 shadow-[0px_4px_58.5px_0px_rgba(0,0,0,0.06)] lg:hidden dark:bg-[#091120]"
       >
         <div class="flex flex-row justify-between">
-          <button>
+          <button id="menuBtn">
             <img
               src="../assets/icons/menu.svg"
               alt="menu-light"
@@ -52,7 +52,7 @@
       </section>
       <section class="section2 lg:mx-auto lg:px-60">
         <div
-          class="max-w-100 mt-4.5 mx-auto w-80 h-0.5 bg-[#F5F6F8] block lg:hidden"
+          class="max-w-100 mt-4.5 mx-auto w-80 h-0.5 bg-[#F5F6F8] block lg:hidden dark: hidden"
         ></div>
       </section>
       <section
@@ -61,7 +61,7 @@
         <div class="texts flex flex-col gap-2">
           <p
             id="texts-first"
-            class="text-[#242424] text-[16px] leading-[100%] tracking-normal text-right align-middle dark:text-[#FFFFFF]"
+            class="text-[#242424] font-semibold text-[16px] leading-[100%] tracking-normal text-right align-middle dark:text-[#FFFFFF]"
           >
             تسک‌های امروز
           </p>
@@ -76,10 +76,19 @@
           <button
             id="add-duty-btn"
             type="button"
-            class="border border-dashed border-blue-400 w-full h-full rounded-xl hover:bg-blue-300 hover:transition-all hover:duration-300 hover:ease-in-out dark:border-blue-400"
+            class="border border-dashed border-blue-400 w-full h-full rounded-xl hover:bg-blue-300 hover:transition-all hover:duration-300 hover:ease-in-out dark:border-[#203E62] dark:bg-[#091120]"
           >
             <div class="flex flex-row gap-2 p-2">
-              <img src="../assets/icons/add.svg" alt="add-sign" />
+              <img
+                src="../assets/icons/add.svg"
+                alt="add-sign"
+                class="dark:hidden"
+              />
+              <img
+                src="../assets/icons/add-dark.svg"
+                alt="add-sign-dark"
+                class="hidden dark:block"
+              />
               <p class="text-[#007BFF] leading-none dark:text-[#57A8FF]">
                 افزودن وظیفه جدید
               </p>
@@ -135,7 +144,7 @@
 
             <div
               id="priority-form"
-              class="hidden flex flex-row items-center justify-center gap-3 h-14 w-56 rounded-md border border-[#EBEDEF] shadow-[0px_12px_24px_-6px_#1414190F] mt-2"
+              class="hidden flex flex-row items-center justify-center gap-3 h-14 w-56 rounded-md border border-[#EBEDEF] shadow-[0px_12px_24px_-6px_#1414190F] mt-2 dark:border-[#293242] dark:bg-[#0B192D]"
             >
               <button
                 type="button"
@@ -144,7 +153,7 @@
               >
                 پایین
               </button>
-              <div class="h-5 w-0.5 bg-[#EBEDEF]"></div>
+              <div class="h-5 w-0.5 bg-[#EBEDEF] dark:bg-[#293242]"></div>
               <button
                 type="button"
                 data-priority="medium"
@@ -152,7 +161,7 @@
               >
                 متوسط
               </button>
-              <div class="h-5 w-0.5 bg-[#EBEDEF]"></div>
+              <div class="h-5 w-0.5 bg-[#EBEDEF] dark:bg-[#293242]"></div>
               <button
                 type="button"
                 data-priority="high"
@@ -168,7 +177,7 @@
             <div class="flex flex-row items-center justify-end gap-2">
               <button type="button" id="close-btn" class="mb-2">
                 <div
-                  class="relative w-4 h-4 bg-[#F5F5F5] p-4 flex flex-row items-center justify-center pb-4.5 rounded-md"
+                  class="relative w-4 h-4 bg-[#F5F5F5] p-4 flex flex-row items-center justify-center pb-4.5 rounded-md dark:bg-[#0C1B31]"
                 >
                   <img
                     src="../assets/images/Vector.png"
@@ -185,11 +194,9 @@
               <button
                 id="adding-task-btn"
                 type="button"
-                class="relative h-6 bg-[#007BFF] opacity-40 p-4 flex flex-row items-center justify-center pb-4.5 rounded-md mb-2"
+                class="relative h-6 bg-[#007BFF] opacity-40 p-4 flex flex-row items-center justify-center pb-4.5 rounded-md mb-2 dark:bg-[#002247]"
               >
-                <span class="text-white dark:text-[#002247]"
-                  >اضافه کردن تسک</span
-                >
+                <span class="text-white">اضافه کردن تسک</span>
               </button>
             </div>
           </div>
@@ -270,7 +277,7 @@
                     class="trash-edit hidden absolute end-0 top-full flex items-center h-8 border bg-white border-[#E9E9E9] rounded-lg shadow-[0px_12px_24px_-6px_rgba(20,20,25,0.06)] px-1 gap-x-2 z-30 dark:bg-[#0B192D] dark:border-[#293242]"
                   >
                     <button
-                      class="edit flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-l-lg"
+                      class="edit flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-lg dark:hover:bg-gray-800"
                     >
                       <img
                         src="../assets/icons/edit-bar.svg"
@@ -284,11 +291,9 @@
                         class="hidden dark:block"
                       />
                     </button>
-                    <div
-                      class="hidden h-5 w-px bg-[#E9E9E9] dark:bg-[#293242]"
-                    ></div>
+                    <div class="h-5 w-px bg-[#E9E9E9] dark:bg-[#293242]"></div>
                     <button
-                      class="trash flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-r-lg"
+                      class="trash flex h-full w-6 items-center justify-center hover:bg-gray-100 rounded-lg dark:hover:bg-gray-800"
                     >
                       <img
                         src="../assets/icons/trash-icone.svg"
@@ -338,96 +343,211 @@
     </main>
 
     <aside
-      class="fixed top-10 right-5 z-40 w-72 h-screen bg-white shadow-lg flex flex-col p-6 translate-x-full sm:translate-x-0 transition-transform duration-300 rounded-b-sm"
+      id="sidebar"
+      class="fixed top-5 lg:right-5 rounded-2xl rounded-b-2xl z-40 w-72 h-screen lg:max-h-[95%] lg:min-h-[95%] bg-white shadow-lg flex flex-col p-6 translate-x-full sm:translate-x-0 transition-transform duration-300 dark:bg-[#091120]"
     >
       <div>
-        <div class="flex items-center justify-between mb-8">
-          <h1 class="text-lg font-semibold text-gray-900">کوئرا لیست</h1>
-          <button class="sm:hidden text-gray-500 text-xl">×</button>
+        <div class="flex items-center justify-between mb-8 lg:hidden">
+          <h1 class="text-lg font-semibold text-gray-900 dark:text-white">
+            کوئرا لیست
+          </h1>
+          <button id="closeSidebar" class="sm:hidden text-white text-xl">
+            ×
+          </button>
         </div>
+        <section class="section1 hidden lg:block">
+          <div class="image-text flex flex-row gap-5 mt-4 mb-8">
+            <img src="../assets/images/Ellipse 136.png" alt="user_profile" />
+            <div class="text flex flex-col gap-1 justify-center">
+              <!-- <p style="font-family: 'Yekan Bakh', sans-serif; font-weight: 800"> تست فونت</p> -->
+              <p
+                class="text-child1 text-[#242424] text-[18px] leading-[100%] tracking-normal text-right align-middle mb-2 dark:text-[#FFFFFF]"
+              >
+                سلام، رویا
+              </p>
+              <p
+                id="date"
+                class="text-child2 text-[#7D7D7F] text-[14px] leading-[100%] tracking-normal text-right align-middle dark:text-[#848890]"
+              >
+                امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲
+              </p>
+            </div>
+          </div>
+        </section>
 
         <nav class="space-y-3">
           <a
             href="#"
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-blue-600 bg-blue-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-blue-600 bg-blue-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:bg-[#041933] dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/home-2.png" alt="home_icon" />
+            <img
+              src="../assets/images/home-2.png"
+              alt="home_icon"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/home-2-dark.png"
+              alt="home-icon-dark"
+              class="hidden dark:block"
+            />
             <span>خانه</span>
           </a>
 
           <a
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/task-square.png" alt="" />
+            <img
+              src="../assets/images/task-square.png"
+              alt="tasks"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/task-square-dark.png"
+              alt="task-dark"
+              class="hidden dark:block"
+            />
             <span>تسک‌ها</span>
           </a>
 
           <a
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/calendar.png" />
+            <img
+              src="../assets/images/calendar.png"
+              alt="calender"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/calendar-dark.png"
+              alt="calender-dark"
+              class="hidden dark:block"
+            />
             <span>تقویم</span>
           </a>
 
           <a
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/arrange-square-2.png" alt="" />
+            <img
+              src="../assets/images/arrange-square-2.png"
+              alt="arrange"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/arrange-square-2-dark.png"
+              alt="arrange-dark"
+              class="hidden dark:block"
+            />
             <span>گزارشات</span>
           </a>
 
           <a
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/setting.png" alt="" />
+            <img
+              src="../assets/images/setting.png"
+              alt="seetings"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/setting-dark.png"
+              alt="sttings-dark"
+              class="hidden dark:block"
+            />
             <span>تنظیمات</span>
           </a>
 
           <a
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/24-support.png" alt="" />
+            <img
+              src="../assets/images/24-support.png"
+              alt="24-support"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/24-support-dark.png"
+              alt="24-support-dark"
+              class="hidden dark:block"
+            />
             <span>پشتیبانی</span>
           </a>
 
           <a
-            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
           >
-            <img src="../assets/images/profile.png" alt="" />
+            <img
+              src="../assets/images/profile.png"
+              alt="profile"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/profile-dark.png"
+              alt="profile-dark"
+              class="hidden dark:block"
+            />
             <span>پروفایل</span>
           </a>
         </nav>
       </div>
 
-      <div class="mt-10 space-y-4">
-        <div class="flex items-center bg-gray-100 rounded-xl p-1">
+      <div class="space-y-4 mt-auto mb-4 lg:mb-0">
+        <div
+          class="flex flex-row items-center bg-gray-100 rounded-xl p-1 dark:bg-[#0C1B31]"
+        >
           <button
-            class="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-white text-gray-900"
+            id="lightBtn"
+            class="flex-1 flex flex-row items-center justify-center gap-2 py-2 rounded-lg bg-white text-gray-900 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:bg-[#0C1B31] dark:hover:bg-blue-900"
           >
+            <img
+              src="../assets/images/sun-light.png"
+              alt="sun-light"
+              class="mt-0.5"
+            />
             <span>روشن</span>
           </button>
 
           <button
-            class="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-gray-900"
+            id="darkBtn"
+            class="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-gray-900 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:bg-[#002247] dark:hover:bg-blue-900"
           >
+            <img
+              src="../assets/images/moon-light.png"
+              alt="moon-dark"
+              class="dark:hidden"
+            />
+            <img
+              src="../assets/images/moon-dark.png"
+              alt="moon-light"
+              class="hidden dark:block"
+            />
             <span>تاریک</span>
           </button>
         </div>
 
-        <div class="border-t border-gray-300"></div>
+        <div class="border-t border-gray-300 dark:border-[#2F3132]"></div>
 
         <button
-          class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100"
+          class="flex items-center gap-4 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:transition-all hover:duration-300 hover:ease-in-out dark:text-white dark:hover:bg-gray-800"
         >
-          <span class="w-5 h-5 bg-gray-400 rounded"></span>
+          <img
+            src="../assets/images/logout.png"
+            alt="logout"
+            class="dark:hidden"
+          />
+          <img
+            src="../assets/images/logout-dark.png"
+            alt="logout-dark"
+            class="hidden dark:block"
+          />
           خروج
         </button>
       </div>
     </aside>
-    <footer class="lg:mx-auto lg:px-23 lg:mr-75">
-      <!-- padding needs to be fixed after sidebar -->
-      <div class="p-4 flex flex-col gap-y-4 mb-8">
-        <div class="w-full">
+    <footer class="flex flex-col lg:mx-auto lg:mr-75 mt-10 px-4">
+      <div class="flex flex-col gap-y-4 mb-8">
+        <div class=" lg:mr-60">
+          <!-- padding needs to be fixed (59 for 1440) (70 for peyman)-->
           <h2
             class="text-[20px] font-extrabold text-[#242424] dark:text-[#FFFFFF] mb-1"
           >
