@@ -61,7 +61,7 @@
         <div class="texts flex flex-col gap-2">
           <p
             id="texts-first"
-            class="text-[#242424] font-semibold text-[16px] leading-[100%] tracking-normal text-right align-middle dark:text-[#FFFFFF]"
+            class="text-[#242424] font-semibold text-[20px] leading-[100%] tracking-normal text-right align-middle dark:text-[#FFFFFF]"
           >
             تسک‌های امروز
           </p>
@@ -120,20 +120,21 @@
             <button
               id="tag-btn"
               type="button"
-              class="flex flex-row gap-3 text-[#AFAEB2] h-8 w-20 justify-center items-center border border-[#E9E9E9] rounded-md mt-4 text-[12px] dark:border-[#83878F]"
+              class="flex flex-row gap-3 text-[#AFAEB2] h-8 w-20 justify-center items-center border border-[#E9E9E9] rounded-md mt-4 text-[12px] dark:border-[#83878F] dark:bg-[#091120] dark:text-white"
             >
               <img
                 id="tag-img"
-                class="w-4 h-4"
+                class="w-4 h-4 "
                 src="../assets/images/tag-right.png"
                 alt="tag-icon"
               />
               <img
                 id="tag-img-down"
-                class="hidden w-4 h-4"
+                class="hidden w-4 h-4 "
                 src="../assets/icons/tag-right.svg"
                 alt="tag-icon"
               />
+              
 
               <span id="tag-span">تگ ها</span>
               <div id="div-span" class="hidden flex flex-row gap-3">
@@ -237,9 +238,9 @@
                 <!-- fixed the desc by wraping it in updated div -->
                 <div class="flex-col gap-1 lg:flex-row">
                   <!-- fixed the desc -->
-                  <div class="flex flex-col lg:flex-row gap-1">
+                  <div class="flex flex-col lg:flex-row gap-3">
                     <p
-                      class="title-task break-all text-[#323233] font-semibold text-sm decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
+                      class="title-task break-all text-[#323233] mt-1 items-center font-semibold text-sm decoration-gray-700 decoration-1 dark:text-[#FFFFFF] dark:decoration-gray-500"
                     >
                       خرید میوه و سبزیجات و لبنیات برای خانه
                     </p>
@@ -324,7 +325,7 @@
           />
         </div>
         <div
-          class="checklist-texts mt-2 max-w-65 flex flex-col gap-3 lg:max-w-90"
+          class="checklist-texts mt-2 max-w-65 flex flex-col gap-3 lg:max-w-95"
         >
           <p
             id="checklist-texts-child1"
@@ -344,14 +345,14 @@
 
     <aside
       id="sidebar"
-      class="fixed top-5 lg:right-5 rounded-2xl rounded-b-2xl z-40 w-72 h-screen lg:max-h-[95%] lg:min-h-[95%] bg-white shadow-lg flex flex-col p-6 translate-x-full sm:translate-x-0 transition-transform duration-300 dark:bg-[#091120]"
+      class="fixed top-0 lg:top-5 lg:right-5 rounded-2xl rounded-b-2xl z-40 w-72 h-screen lg:max-h-[95%] lg:min-h-[95%] bg-white shadow-lg flex flex-col p-6 translate-x-full sm:translate-x-0 transition-transform duration-300 dark:bg-[#091120]"
     >
       <div>
         <div class="flex items-center justify-between mb-8 lg:hidden">
           <h1 class="text-lg font-semibold text-gray-900 dark:text-white">
             کوئرا لیست
           </h1>
-          <button id="closeSidebar" class="sm:hidden text-white text-xl">
+          <button id="closeSidebar" class="sm:hidden text-black text-xl dark:text-white">
             ×
           </button>
         </div>
@@ -366,7 +367,7 @@
                 سلام، رویا
               </p>
               <p
-                id="date"
+                id="date1"
                 class="text-child2 text-[#7D7D7F] text-[14px] leading-[100%] tracking-normal text-right align-middle dark:text-[#848890]"
               >
                 امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲
@@ -548,8 +549,9 @@
       <div class="flex flex-col gap-y-4 mb-8">
         <div class=" lg:mr-60">
           <!-- padding needs to be fixed (59 for 1440) (70 for peyman)-->
+          <!-- padding needs to be fixed (59 for 1440) (77 for nastaran)-->
           <h2
-            class="text-[20px] font-extrabold text-[#242424] dark:text-[#FFFFFF] mb-1"
+            class="text-[20px] font-extrabold text-[#242424] dark:text-[#FFFFFF] mb-1 "
           >
             تسک‌های انجام شده
           </h2>

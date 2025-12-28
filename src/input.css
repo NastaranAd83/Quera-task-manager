@@ -1,5 +1,6 @@
-@import "tailwindcss";
 
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 /* src/input.css */
 
 @font-face {
@@ -11,11 +12,12 @@
 
 @font-face {
   font-family: "Yekan Bakh";
-  src: url("./assets/fonts/yekan-bakh/YekanBakh-ExtraBold.woff2")
-    format("woff2");
+  src: url("./assets/fonts/yekan-bakh/YekanBakh-SemiBold.woff2")format("woff2");
   font-weight: 800;
   font-style: normal;
 }
+
+
 
 body {
   font-family: "Yekan Bakh", sans-serif;

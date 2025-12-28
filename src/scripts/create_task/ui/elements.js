@@ -33,10 +33,11 @@ export const completedTaskList = document.querySelector(".completed-task-list");
 export const completedTasksText = document.getElementById("completed-text"); //nuber of done task
 
 // side bar
-export const body = document.getElementById("app");
+// export const body = document.getElementById("app");
 export const sidebar = document.getElementById("sidebar");
 export const menuBtn = document.getElementById("menuBtn");
 export const closeSidebar = document.getElementById("closeSidebar");
 export const darkBtn = document.getElementById("darkBtn");
 export const lightBtn = document.getElementById("lightBtn");
 export const navLinks = document.querySelectorAll(".nav-link");
+export const html = document.documentElement;
