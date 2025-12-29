@@ -26,14 +26,15 @@ import {
   // footer
   completedTaskList,
   completedTasksText,
-  // side bar 
-  body,
+  // side bar
+  // body,
   sidebar,
   menuBtn,
   closeSidebar,
   darkBtn,
   lightBtn,
   navLinks,
+  html,
 } from "./ui/elements.js";
 
 import { renderTasks } from "../create_task/ui/render_tasks.js";
@@ -183,7 +184,6 @@ export function createTask({ id, title, description, priority }) {
     priorityText.classList.add("text-[#FF5F37]", "dark:text-[#FF5F37]");
     line.classList.add("bg-[#FF5F37]", "dark:bg-[#FF5F37]");
     priority_bg.classList.add("bg-[#FFE2DB]", "dark:bg-[#3D2327]");
-   
   }
 
   if (priority === "medium") {
@@ -197,13 +197,13 @@ export function createTask({ id, title, description, priority }) {
     priorityText.classList.add("text-[#11A483]", "dark:text-[#02E1A2]");
     line.classList.add("bg-[#11A483]", "dark:bg-[#02E1A2]");
     priority_bg.classList.add("bg-[#C3FFF1]", "dark:bg-[#233332]");
-    
   }
 
   three_dots.addEventListener("click", () => {
     trash_edit.classList.toggle("hidden");
   });
   edit.addEventListener("click", () => {
+    tag_btn.classList.remove("border");
     const realIndex = tasks.findIndex((t) => t.id === id);
     id_container = id;
     tasks.splice(realIndex, 1);
@@ -218,16 +218,31 @@ export function createTask({ id, title, description, priority }) {
 
     if (priority === "low") {
       priority = "پایین";
-      tag_btn.style.backgroundColor = "#C3FFF1";
-      tag_btn.style.color = "#11A483";
+      if (!html.classList.contains("dark")) {
+        tag_btn.style.backgroundColor = "#C3FFF1";
+        tag_btn.style.color = "#11A483";
+      } else {
+        tag_btn.style.backgroundColor = "#233332";
+        tag_btn.style.color = "#02E1A2";
+      }
     } else if (priority === "medium") {
       priority = "متوسط";
-      tag_btn.style.backgroundColor = "#FFEFD6";
-      tag_btn.style.color = "#FFAF37";
+      if (!html.classList.contains("dark")) {
+        tag_btn.style.backgroundColor = "#FFEFD6";
+        tag_btn.style.color = "#FFAF37";
+      } else {
+        tag_btn.style.backgroundColor = "#302F2D";
+        tag_btn.style.color = "#FFAF37";
+      }
     } else if (priority === "high") {
       priority = "بالا";
-      tag_btn.style.backgroundColor = "#FFE2DB";
-      tag_btn.style.color = "#FF5F37";
+      if (!html.classList.contains("dark")) {
+        tag_btn.style.backgroundColor = "#FFE2DB";
+        tag_btn.style.color = "#FF5F37";
+      } else {
+        tag_btn.style.backgroundColor = "#3D2327";
+        tag_btn.style.color = "#FF5F37";
+      }
     }
     tag_span.classList.add("hidden");
     tag_img.classList.add("hidden");
@@ -292,20 +307,17 @@ export function createTask({ id, title, description, priority }) {
 
       insertTaskSorted(completedTaskList, card, priority);
       if (tasks.length >= 0) {
-        console.log("hello")
+        console.log("hello");
         if (tasks.length === 0) {
-          
           section4.classList.remove("hidden");
           section5.classList.remove("hidden");
           texts_second.textContent = " تسکی برای امروز نداری!";
+        } else {
+          section4.classList.add("hidden");
+          section5.classList.add("hidden");
+          texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
         }
-        else {
-        
-        section4.classList.add("hidden");
-        section5.classList.add("hidden");
-        texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
-      } 
-    }
+      }
       updateCompletedCount();
     });
   }
@@ -317,6 +329,7 @@ export function createTask({ id, title, description, priority }) {
 }
 
 adding_duty_btn.addEventListener("click", () => {
+  tag_btn.classList.add("border");
   edit_counter = 0;
   adding_task_btn.style.opacity = 0.4;
   section5.classList.remove("hidden");
@@ -326,6 +339,7 @@ adding_duty_btn.addEventListener("click", () => {
 });
 
 close_btn.addEventListener("click", () => {
+  tag_btn.classList.add("border");
   if (edit_counter === 1) {
     let index = storing_task.findIndex((t) => t.id === id_container);
 
@@ -335,7 +349,7 @@ close_btn.addEventListener("click", () => {
       description: storing_task[index].description,
       priority: storing_task[index].priority,
     });
-
+    saveTasksToStorage(tasks);
     renderTasks({
       tasks,
       taskList,
@@ -360,8 +374,16 @@ close_btn.addEventListener("click", () => {
   tag_span.textContent = "تگ ها";
   tag_img.classList.remove("hidden");
   div_span.classList.add("hidden");
-  tag_btn.style.backgroundColor = "#FFFFFF";
-  tag_btn.style.color = "#AFAEB2";
+  if (html.classList.contains("dark")) {
+    tag_btn.style.backgroundColor = "#091120";
+    tag_btn.style.color = "#FFFFFF";
+  } else {
+    tag_btn.style.backgroundColor = "#FFFFFF";
+    tag_btn.style.color = "#AFAEB2";
+  }
+  // tag_btn.classList.add = "#FFFFFF";
+  // tag_btn.classList.add = "dark:bg-[#091120]";
+  
   span1.textContent = "";
   currentPriority = 0;
   if (tasks.length === 0) {
@@ -376,6 +398,7 @@ close_btn.addEventListener("click", () => {
 });
 
 tag_btn.addEventListener("click", () => {
+  tag_btn.classList.add("border");
   if (priority_form.classList.contains("hidden") && currentPriority === 0) {
     tag_img_down.classList.remove("hidden");
     tag_img.classList.add("hidden");
@@ -386,8 +409,17 @@ tag_btn.addEventListener("click", () => {
     tag_span.textContent = "تگ ها";
     tag_img.classList.remove("hidden");
     div_span.classList.add("hidden");
-    tag_btn.style.backgroundColor = "#FFFFFF";
-    tag_btn.style.color = "#AFAEB2";
+    if (html.classList.contains("dark")) {
+      tag_btn.style.backgroundColor = "#091120";
+      tag_btn.style.color = "#FFFFFF";
+    } else {
+      tag_btn.style.backgroundColor = "#FFFFFF";
+      tag_btn.style.color = "#AFAEB2";
+    }
+    // tag_btn.classList.add = "bg-[#FFFFFF]";
+    // tag_btn.classList.add = "dark:bg-[#091120]";
+    // tag_btn.style.backgroundColor = "#FFFFFF";
+    
     span1.textContent = "";
     currentPriority = 0;
     adding_task_btn.style.opacity = 0.4;
@@ -400,16 +432,31 @@ priorityButtons.forEach((btn) => {
     currentPriority = 1;
 
     let label = type === "low" ? "پایین" : type === "medium" ? "متوسط" : "بالا";
-
+    tag_btn.classList.remove("border");
     if (type === "low") {
-      tag_btn.style.backgroundColor = "#C3FFF1";
-      tag_btn.style.color = "#11A483";
+      if (!html.classList.contains("dark")) {
+        tag_btn.style.backgroundColor = "#C3FFF1";
+        tag_btn.style.color = "#11A483";
+      } else {
+        tag_btn.style.backgroundColor = "#233332";
+        tag_btn.style.color = "#02E1A2";
+      }
     } else if (type === "medium") {
-      tag_btn.style.backgroundColor = "#FFEFD6";
-      tag_btn.style.color = "#FFAF37";
+      if (!html.classList.contains("dark")) {
+        tag_btn.style.backgroundColor = "#FFEFD6";
+        tag_btn.style.color = "#FFAF37";
+      } else {
+        tag_btn.style.backgroundColor = "#302F2D";
+        tag_btn.style.color = "#FFAF37";
+      }
     } else if (type === "high") {
-      tag_btn.style.backgroundColor = "#FFE2DB";
-      tag_btn.style.color = "#FF5F37";
+      if (!html.classList.contains("dark")) {
+        tag_btn.style.backgroundColor = "#FFE2DB";
+        tag_btn.style.color = "#FF5F37";
+      } else {
+        tag_btn.style.backgroundColor = "#3D2327";
+        tag_btn.style.color = "#FF5F37";
+      }
     }
 
     tag_span.classList.add("hidden");
@@ -489,8 +536,17 @@ adding_task_btn.addEventListener("click", () => {
 
     tag_img.classList.remove("hidden");
     div_span.classList.add("hidden");
-    tag_btn.style.backgroundColor = "#FFFFFF";
-    tag_btn.style.color = "#AFAEB2";
+    if (html.classList.contains("dark")) {
+      tag_btn.style.backgroundColor = "#091120";
+      tag_btn.style.color = "#FFFFFF";
+    } else {
+      tag_btn.style.backgroundColor = "#FFFFFF";
+      tag_btn.style.color = "#AFAEB2";
+    }
+
+    // tag_btn.classList.add  = "bg-[#FFFFFF]";
+    // tag_btn.classList.add = "dark:bg-[#091120]";
+
     span1.textContent = "";
     currentPriority = 0;
     adding_task_btn.style.opacity = 0.4;
@@ -572,9 +628,6 @@ function handleDeleteClick(e) {
 // Call this once after your app is initialized
 setupDeleteListeners();
 
-
-
-
 // side bar
 
 menuBtn.addEventListener("click", () => {
@@ -585,21 +638,34 @@ closeSidebar.addEventListener("click", () => {
   sidebar.classList.add("translate-x-full");
 });
 
+//  function setActiveButton(activeBtn, inactiveBtn) {
+//   activeBtn.classList.add("bg-[rgba(0,34,71,1)]", "text-white");
+//   activeBtn.classList.remove("bg-white", "text-gray-900");
 
-export function setActiveButton(activeBtn, inactiveBtn) {
-  activeBtn.classList.add("bg-[rgba(0,34,71,1)]", "text-white");
-  activeBtn.classList.remove("bg-white", "text-gray-900");
-
-  inactiveBtn.classList.remove("bg-[rgba(0,34,71,1)]", "text-white");
-  inactiveBtn.classList.add("bg-white", "text-gray-900");
-}
+//   inactiveBtn.classList.remove("bg-[rgba(0,34,71,1)]", "text-white");
+//   inactiveBtn.classList.add("bg-white", "text-gray-900");
+// }
 
 darkBtn.addEventListener("click", () => {
-  body.classList.add("dark");
-  setActiveButton(darkBtn, lightBtn);
+  html.classList.add("dark");
+  localStorage.setItem("theme", "dark");
+  if (html.classList.contains("dark")) {
+    tag_btn.style.backgroundColor = "#091120";
+  } else {
+    tag_btn.style.backgroundColor = "#FFFFFF";
+  }
 });
 
 lightBtn.addEventListener("click", () => {
-  body.classList.remove("dark");
-  setActiveButton(lightBtn, darkBtn);
+  html.classList.remove("dark");
+  localStorage.setItem("theme", "light");
+  if (html.classList.contains("dark")) {
+    tag_btn.style.backgroundColor = "#091120";
+  } else {
+    tag_btn.style.backgroundColor = "#FFFFFF";
+  }
 });
+
+if (localStorage.getItem("theme") === "dark") {
+  html.classList.add("dark");
+}
