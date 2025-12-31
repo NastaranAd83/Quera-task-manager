@@ -1,0 +1,5 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/src/pages/page1.html" }
+  ]
+}
