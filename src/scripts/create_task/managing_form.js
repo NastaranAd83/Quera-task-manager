@@ -116,6 +116,10 @@ export function insertTaskSorted(container, card, priority) {
 function updateCompletedCount() {
   const count = completedTaskList.children.length;
   completedTasksText.textContent = `${count} تسک را انجام داده‌اید.`;
+  if (count === 0)
+  {
+      completedTasksText.textContent =  "تسکی انجام نداده اید.";
+  }
 
 }
 
