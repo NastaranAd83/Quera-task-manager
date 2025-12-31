@@ -11,5 +11,5 @@ export function applyCompletedUI(card) {
   if (priorityBg) priorityBg.classList.add("bg-transparent");
 
   completeBox.innerHTML =
-    '<img src="../assets/icons/tick-square.svg" class="w-5 h-5" />';
+    '<img src="/src/assets/icons/tick-square.svg" class="w-5 h-5" />';
 }
