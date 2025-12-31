@@ -639,11 +639,19 @@ darkBtn.addEventListener("click", () => {
 lightBtn.addEventListener("click", () => {
   html.classList.remove("dark");
   localStorage.setItem("theme", "light");
-  if (html.classList.contains("dark")) {
-    tag_btn.style.backgroundColor = "#091120";
-  } else {
-    tag_btn.style.backgroundColor = "#FFFFFF";
-  }
+  // if (html.classList.contains("dark")) {
+  //   tag_btn.style.backgroundColor = "#091120";
+  // } else {
+  //   tag_btn.style.backgroundColor = "#FFFFFF";
+  // }
+    if (html.classList.contains("dark")) {
+      tag_btn.style.backgroundColor = "#091120";
+      tag_btn.style.color = "#FFFFFF";
+    } else {
+      tag_btn.style.backgroundColor = "#FFFFFF";
+      tag_btn.style.color = "#AFAEB2";
+    }
+  
 });
 
 if (localStorage.getItem("theme") === "dark") {
