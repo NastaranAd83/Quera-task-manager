@@ -116,18 +116,7 @@ export function insertTaskSorted(container, card, priority) {
 function updateCompletedCount() {
   const count = completedTaskList.children.length;
   completedTasksText.textContent = `${count} تسک را انجام داده‌اید.`;
-  //  tasks.length = tasks.length -1;
-  // if (tasks.length >= 1) {
-  //   console.log("hello")
-  //   if (tasks.length === 0) {
-  //      texts_second.textConten = " تسکی برای امروز نداری!"
-  //      console.log("task nadari")
-  //   } else if (tasks.length - 1>0) {
 
-  //     texts_second.textContent = `${tasks.length} تسک باید انجام دهید.`;
-  //     console.log("bayad anjam bedi")
-  //   }
-  // }
 }
 
 export function createTask({ id, title, description, priority }) {
@@ -381,8 +370,7 @@ close_btn.addEventListener("click", () => {
     tag_btn.style.backgroundColor = "#FFFFFF";
     tag_btn.style.color = "#AFAEB2";
   }
-  // tag_btn.classList.add = "#FFFFFF";
-  // tag_btn.classList.add = "dark:bg-[#091120]";
+
   
   span1.textContent = "";
   currentPriority = 0;
@@ -416,9 +404,7 @@ tag_btn.addEventListener("click", () => {
       tag_btn.style.backgroundColor = "#FFFFFF";
       tag_btn.style.color = "#AFAEB2";
     }
-    // tag_btn.classList.add = "bg-[#FFFFFF]";
-    // tag_btn.classList.add = "dark:bg-[#091120]";
-    // tag_btn.style.backgroundColor = "#FFFFFF";
+  
     
     span1.textContent = "";
     currentPriority = 0;
@@ -544,8 +530,6 @@ adding_task_btn.addEventListener("click", () => {
       tag_btn.style.color = "#AFAEB2";
     }
 
-    // tag_btn.classList.add  = "bg-[#FFFFFF]";
-    // tag_btn.classList.add = "dark:bg-[#091120]";
 
     span1.textContent = "";
     currentPriority = 0;
@@ -637,14 +621,6 @@ menuBtn.addEventListener("click", () => {
 closeSidebar.addEventListener("click", () => {
   sidebar.classList.add("translate-x-full");
 });
-
-//  function setActiveButton(activeBtn, inactiveBtn) {
-//   activeBtn.classList.add("bg-[rgba(0,34,71,1)]", "text-white");
-//   activeBtn.classList.remove("bg-white", "text-gray-900");
-
-//   inactiveBtn.classList.remove("bg-[rgba(0,34,71,1)]", "text-white");
-//   inactiveBtn.classList.add("bg-white", "text-gray-900");
-// }
 
 darkBtn.addEventListener("click", () => {
   html.classList.add("dark");

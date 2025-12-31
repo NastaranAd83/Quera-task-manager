@@ -1,6 +1,5 @@
 
-const dateElement = document.getElementById("date");
-const dateElement1 = document.getElementById("date1");
+import{dateElement1,dateElement} from "../ui/elements.js"
 
 export function updatePersianDate() {
   const today = new Date();
@@ -22,6 +21,6 @@ export function updatePersianDate() {
   }).format(today);
 
   dateElement.textContent = `امروز، ${weekday} ${day} ${month} ${year}`;
-  dateElement1.textContent = `امروز، ${weekday} ${day} ${month} ${year}`;
+  dateElement1.textContent = `${weekday} ${day} ${month} ${year}`;
 }
 
