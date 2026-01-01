@@ -65,6 +65,7 @@ const storedTasks = loadTasksFromStorage();
 const stordCompletedTask = loadCompletedTasksFromStorage();
 
 storing_task.push(...storedTasks);
+console.log(storing_task)
 tasks.push(...storedTasks);
 completedTasks.push(...stordCompletedTask);
 
