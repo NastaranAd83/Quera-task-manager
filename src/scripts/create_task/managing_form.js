@@ -65,6 +65,7 @@ const storedTasks = loadTasksFromStorage();
 const stordCompletedTask = loadCompletedTasksFromStorage();
 
 storing_task.push(...storedTasks);
+console.log(storing_task)
 tasks.push(...storedTasks);
 completedTasks.push(...stordCompletedTask);
 
@@ -296,7 +297,7 @@ export function createTask({ id, title, description, priority }) {
       if (priority_bg) priority_bg.classList.add("bg-transparent");
 
       completeBox.innerHTML =
-        '<img src="../assets/icons/tick-square.svg" class="w-5 h-5" />';
+        '<img src="/src/assets/icons/tick-square.svg" class="w-5 h-5" />';
 
       insertTaskSorted(completedTaskList, card, priority);
       if (tasks.length >= 0) {
